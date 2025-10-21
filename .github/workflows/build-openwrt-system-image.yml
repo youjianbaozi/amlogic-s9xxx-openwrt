@@ -18,6 +18,7 @@ on:
           - openwrt-main
           - lede-master
           - immortalwrt-master
+          - immortalwrt-openwrt-23.05
       openwrt_board:
         description: "Select device board"
         required: false
@@ -189,7 +190,7 @@ on:
       openwrt_kernel:
         description: "Select kernel version"
         required: false
-        default: "6.6.y_6.12.y"
+        default: "5.15.y_6.1.y"
         type: choice
         options:
           - 5.4.y
