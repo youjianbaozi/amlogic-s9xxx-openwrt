@@ -311,9 +311,9 @@ jobs:
         run: |
           # Set up compilation source code
           if [[ "${{ inputs.source_branch }}" == *"immortalwrt-openwrt-23.05"* ]]; then
-              REPO_URL="https://github.com/immortalwrt/immortalwrt"
-              REPO_BRANCH="openwrt-23.05"
-              TAGS_NAME="immortalwrt"
+              REPO_URL="https://github.com/youjianbaozi/immortalwrt"
+              REPO_BRANCH="liuh_immortalwrt_23.05.6"
+              TAGS_NAME="immortalwrt_23.05.6"
               # 添加标签参数
               CLONE_TAG=${1:-"v23.05.6"} 
           elif [[ "${{ inputs.source_branch }}" == *"openwrt"* ]]; then
@@ -337,13 +337,7 @@ jobs:
           fi
 
           # Clone source code
-          # 如果有指定标签，则使用标签克隆；否则使用分支
-          if [[ -n "$CLONE_TAG" ]]; then
-            git clone -q --single-branch --depth=1 --branch=${CLONE_TAG} ${REPO_URL} openwrt
-          else
-            git clone -q --single-branch --depth=1 --branch=${REPO_BRANCH} ${REPO_URL} openwrt
-          fi
-          # git clone -q --single-branch --depth=1 --branch=${REPO_BRANCH} ${REPO_URL} openwrt
+          git clone -q --single-branch --depth=1 --branch=${REPO_BRANCH} ${REPO_URL} openwrt
           ln -sf /builder/openwrt ${GITHUB_WORKSPACE}/openwrt
           ln -sf /builder/openwrt /home/runner/work/_actions/ophub/amlogic-s9xxx-openwrt/main/openwrt
 
