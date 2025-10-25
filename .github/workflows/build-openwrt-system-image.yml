@@ -314,23 +314,18 @@ jobs:
               REPO_URL="https://github.com/youjianbaozi/immortalwrt"
               REPO_BRANCH="liuh_immortalwrt_23.05.6"
               TAGS_NAME="immortalwrt_23.05.6"
-              # 添加标签参数
-              CLONE_TAG=${1:-"v23.05.6"} 
           elif [[ "${{ inputs.source_branch }}" == *"openwrt"* ]]; then
               REPO_URL="https://github.com/openwrt/openwrt"
               REPO_BRANCH="main"
               TAGS_NAME="official"
-              CLONE_TAG=${1:-"v24.10.3"}
           elif [[ "${{ inputs.source_branch }}" == *"lede"* ]]; then
               REPO_URL="https://github.com/coolsnowwolf/lede"
               REPO_BRANCH="master"
               TAGS_NAME="lede"
-              CLONE_TAG=${1:-"v20251001"}
           elif [[ "${{ inputs.source_branch }}" == *"immortalwrt"* ]]; then
               REPO_URL="https://github.com/immortalwrt/immortalwrt"
               REPO_BRANCH="master"
               TAGS_NAME="immortalwrt"
-              CLONE_TAG=${1:-"v24.10.3"}
           else
               echo "Unknown source code repository."
               exit 1
